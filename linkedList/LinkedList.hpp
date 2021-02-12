@@ -52,6 +52,7 @@ bool LinkedList<T>::search(T value) const
 	{
 		if(temp->getValue() == value)
 		{
+			isFound = true;
 			return(isFound);
 		}
 		temp = temp->getNext();
@@ -109,18 +110,21 @@ void LinkedList<T>::addFront(T value)
 template <typename T>
 bool LinkedList<T>::removeBack()
 {
-	Node<T>* lastNode = nullptr;
+	Node<T>* lastNode = m_front;
 	Node<T>* secondintoLast = nullptr;
 	bool isRemoved = false;
 
 	/** TODO 
 		Fix this method
 	*/
-	/*if(!isEmpty())
+	
+	while(lastNode != nullptr)
 	{
-		
-	}*/
-
+		lastNode = lastNode->getNext();
+	}
+	delete lastNode;
+	lastNode = nullptr;
+	//isRemoved = true;
 	return(isRemoved);
 }	
 
